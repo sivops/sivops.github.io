@@ -165,6 +165,88 @@
     @media (max-width: 640px) {
       h1 { font-size: 1.9rem; }
     }
+
+    .hero-code {
+      width: 100%;
+      display: block;   /* No flex, no centering */
+    }
+
+    .code-window {
+      width: 100%;       /* Stretch full width */
+      border-radius: 1rem;
+      overflow: hidden;
+      background: #020617;
+      box-shadow: 0 20px 45px rgba(15,23,42,0.35);
+      border: 1px solid rgba(30,41,59,0.6);
+    }
+
+    .code-window-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.45rem 0.75rem;
+      background: #020617;
+      border-bottom: 1px solid rgba(30,64,175,0.6);
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    .code-window-header .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    .code-window-header .dot.red { background: #f97373; }
+    .code-window-header .dot.yellow { background: #facc15; }
+    .code-window-header .dot.green { background: #4ade80; }
+
+    .code-title {
+      margin-left: 6px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    .code-body {
+      padding: 1rem 1.2rem;
+      font-size: 0.85rem;
+      line-height: 1.55;
+      color: #e5e7eb;
+      background: #0b1120;
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+
+
+    .code-body code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      white-space: pre;
+    }
+
+    /* Blinking cursor */
+    .code-cursor {
+      display: inline-block;
+      width: 7px;
+      height: 1rem;
+      background: #a5b4fc;
+      margin-left: 2px;
+      transform: translateY(2px);
+      animation: blinkCursor 1s steps(2, start) infinite;
+    }
+
+    @keyframes blinkCursor {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @media (max-width: 640px) {
+      .hero-code {
+        margin-top: 1.5rem;
+      }
+    }
+
+    
   </style>
 </head>
 <body>
@@ -189,26 +271,44 @@
             Connect on LinkedIn
           </a>
         </div>
-        <div class="tag-row">
-          <span>AWS</span>
-          <span>Kubernetes</span>
-          <span>Terraform</span>
-          <span>GitOps</span>
-          <span>CI/CD</span>
-          <span>Observability</span>
-          <span>Monitoring & Alerting</span>
-          <span>Cloud Architecture</span>
-          <span>Automation</span>
-          <span>Reliability Engineering</span>
+
+        <div class="hero-code" style="margin-top: 1.8rem; width: 100%;">
+          <div class="code-window">
+            <div class="code-window-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="code-title">devops_automation.py</span>
+            </div>
+        
+            <pre class="code-body"><code>
+        tools = [
+            "AWS",
+            "Kubernetes",
+            "Terraform",
+            "GitOps",
+            "CI/CD",
+            "Observability",
+            "Monitoring & Alerting",
+            "Cloud Architecture",
+            "Automation",
+            "Reliability Engineering",
+        ]
+        
+        def automate(tool):
+            print(f"Configuring {tool}...")
+        
+        for t in tools:
+            automate(t)<span class="code-cursor"></span>
+            </code></pre>
+        
+          </div>
         </div>
       </div>
-      <div class="hero-video">
-        <!-- Replace assets/intro.mp4 with your actual video path/name if needed -->
-        <video controls>
-          <source src="assets/intro.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
+      
+      
+            
+
     </header>
 
     <section class="section">
