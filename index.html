@@ -167,17 +167,20 @@
     }
 
     .hero-code {
-      width: 100%;
-      display: block;   /* No flex, no centering */
+        width: 100%;
+        display: block;
+        margin: 1.8rem 0 0 0;
+        padding: 0;
     }
 
     .code-window {
-      width: 100%;       /* Stretch full width */
-      border-radius: 1rem;
-      overflow: hidden;
-      background: #020617;
-      box-shadow: 0 20px 45px rgba(15,23,42,0.35);
-      border: 1px solid rgba(30,41,59,0.6);
+        width: 100%;
+        max-width: none;         /* important: remove any old max-width */
+        border-radius: 1rem;
+        overflow: hidden;
+        background: #020617;
+        box-shadow: 0 20px 45px rgba(15,23,42,0.35);
+        border: 1px solid rgba(30,41,59,0.6);
     }
 
     .code-window-header {
@@ -208,19 +211,24 @@
     }
 
     .code-body {
-      padding: 1rem 1.2rem;
-      font-size: 0.85rem;
-      line-height: 1.55;
-      color: #e5e7eb;
-      background: #0b1120;
-      white-space: pre-wrap;
-      overflow-x: auto;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        padding: 1rem 1.2rem;
+        font-size: 0.85rem;
+        line-height: 1.55;
+        color: #e5e7eb;
+        background: #0b1120;
+
+        /* critical for iOS: allow wrapping and breaking */
+        white-space: pre-wrap;
+        word-break: break-word;
+        overflow-x: auto;   /* only if something is still too long */
     }
 
-
     .code-body code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      white-space: pre;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+        white-space: pre-wrap;    /* override any previous `pre` */
     }
 
     /* Blinking cursor */
@@ -246,6 +254,9 @@
       }
     }
 
+    body {
+        overflow-x: hidden;
+    }
     
   </style>
 </head>
